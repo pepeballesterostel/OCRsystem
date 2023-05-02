@@ -1,3 +1,10 @@
+'''
+Main script to launch the OCRsystem application. 
+
+Author: Pepe Ballesteros
+Last update: 03.05.2022
+'''
+
 import os
 import pytesseract
 import docx
@@ -87,13 +94,12 @@ if __name__ == '__main__':
                         help='Path to the book image database')
     parser.add_argument('-l', '--language', default='eng', type=str,
                         help='Language of the book text (e.g. "deu" for German, "ita" for Italian). Take into account that the data for each language must be downloaded from https://github.com/tesseract-ocr/tessdata')
-    parser.add_argument('-o', '--output', default='extracted_text.docx',
-                        help='Path to the output Word document')
     parser.add_argument('-tl', '--target_lang', default='es', type=str, 
                         help='Language to translate text to (e.g. "en" for English, "es" for Spanish). If not specified, the text will not be translated.')
+    parser.add_argument('-o', '--output', default='extracted_text.docx',
+                        help='Path to the output Word document')
 
 
     # Parse the command-line arguments
-    args = parser.parse_args()
     args = parser.parse_args()
     main(args)
